@@ -20,9 +20,17 @@ npm create vite@6.2.0 项目名称(my-vue-app) -- --template vue
 npm create vite@6.2.0 项目名称(my-vue-app) -- --template vue-ts
 ```
 ###### Vite配置项
+###### ***package.json***
+``` javascript
+"scripts": {
+    "dev": "vite --config vite.config.js",
+    "build": "vite build --config vite.config.js",
+    "preview": "vite preview --config vite.config.js"
+  },
+```
 ###### ***vite.config.js***
 ```javascript
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'; 
 import sirv from 'sirv';
 //使用defineConfig函数可以获得类型提示
 export default defineConfig({
@@ -96,5 +104,39 @@ export default defineConfig({
     }
 })
 ```
-
+###### 环境变量
+###### 一些内置常量
+```
+import.meta.env.MODE: {string} 应用运行的模式。
+import.meta.env.BASE_URL: {string} 部署应用时的基本 URL。他由base 配置项决定。
+import.meta.env.PROD: {boolean} 应用是否运行在生产环境（使用 NODE_ENV='production' 运行开发服务器或构建应用时使用 NODE_ENV='production' ）。
+import.meta.env.DEV: {boolean} 应用是否运行在开发环境 (永远与 import.meta.env.PROD相反)。
+import.meta.env.SSR: {boolean} 应用是否运行在 server 上。
+```
+###### Vite只有以***VITE_*** 为前缀的变量才会暴露在import.meta.env对象下
+``` javascript
+VITE_SOME_KEY=123
+//通过import.meta.env.VITE_SOME_KEY
+DB_PASSWORD=foobar
+```
+###### .env文件
+``` javascript
+1 .env                # 所有情况下都会加载
+2 .env.local          # 所有情况下都会加载，但会被 git 忽略
+3 .env.[mode]         # 只在指定模式下加载
+4 .env.[mode].local   # 只在指定模式下加载，但会被 git 忽略
+优先级4>3>2>1
+```
+###### mode 模式
+> 默认情况下，开发服务器 (dev 命令) 运行在 development (开发) 模式，而 build 命令则运行在 production (生产) 模式。
+这意味着当执行 vite build 时，它会自动加载 .env.production 中可能存在的环境变量
+同理可以显示指定模式和对应env文件
+例如:vite build --mode staging 对应 .env.staging文件
+###### NODE_ENV(process.env.NODE_ENV)指的是程序是以何种方式运行的，Mode则指的是程序运行的那种模式，两者是两种概念
+|Command| NODE_ENV |Mode |
+|--|--|--|
+| <code>vite build<code> | <code>"production"<code>  | <code>"production"<code> |
+| <code>vite build --mode development<code>| <code>"production"<code>  | <code>"development"<code> |
+| <code>NODE_ENV=development vite build<code> | <code>"development"<code>  | <code>"production"<code> |
+| <code>NODE_ENV=development vite build --mode development<code> | <code>"development"<code>  | <code>"development "<code> |
 

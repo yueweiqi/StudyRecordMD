@@ -63,16 +63,20 @@ npm官网：  https://www.npmjs.com/
 > 查看package.json文件中Scripts项  {"dev":"vite"}
 > vite对应node_modules下的.bin文件夹下，里面包含可执行文件
 ###### 仓库相关
->  
->
 > **npm cache clean --force**
 > 清除缓存
 > **npm get registry**
 > **npm config get registry**
 > 查看当前源地址
 > **npm set registry https://repo.huaweicloud.com/repository/npm/**
-> 设置源地址
->     
+> 设置源地址 
+###### 修改npm全局模块路径和cache路径
+>在对应位置建立好文件夹
+>npm config set prefix "D:\NodeJS\node_global"
+>npm config set cache "D:\NodeJS\node_cache"
+>配置环境变量
+>增加系统变量NODE_PATH=D:\NodeJS\node_global\node_modules
+>系统变量Path增加一列D:\NodeJS\node_global
 ###### 常用的镜像源地址
 > 官方源（npm registry）：https://registry.npmjs.org/
 > 淘宝NPM镜像源：https://registry.npmmirror.com/

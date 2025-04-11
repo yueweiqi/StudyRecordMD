@@ -28,16 +28,25 @@ npm官网：  https://www.npmjs.com/
 ###### 执行过程 npm install->config->[npm config list]-->
 ###### -->项目级.npmrc->用户级.npmrc->全局的.npmrc->npm内置.npmrc
 ``` javascript
-npm install  //安装所有node_moudles依赖包
-npm install axios //安装axios依赖包
-npm install axios@1.8.2 //安装指定版本
-npm install axios@1.8.2 -S   //默认值就是S** 配置在package.json==》dependencies下，当前目录node_modules,程序运行必要依赖
-npm install axios@1.8.2 -D //配置在package.json==》devDependencies下，当前目录node_modules,开发测试时依赖
-npm install axios@1.8.2 -g  //全局安装文件,作用于全局环境下,模块安装到操作系统上 一般会安装到AppDataAppData\Roaming\npm目录下
-npm uninstall axios //卸载axios包
+//安装所有node_moudles依赖包
+npm install  
+//安装axios依赖包
+npm install axios 
+//安装指定版本
+npm install axios@1.8.2 
+//默认值就是S** 配置在package.json==》dependencies下，当前目录node_modules,程序运行必要依赖
+npm install axios@1.8.2 -S   
+//配置在package.json==》devDependencies下，当前目录node_modules,开发测试时依赖
+npm install axios@1.8.2 -D 
+//全局安装文件,作用于全局环境下,模块安装到操作系统上 一般会安装到AppDataAppData\Roaming\npm目录下
+npm install axios@1.8.2 -g  
+//卸载axios包
+npm uninstall axios 
+
+//更新所有包/只更新axios包到最新版本
 npm update
 npm update axios
-//更新所有包/只更新axios包到最新版本
+
 ```
 ###### 依赖包版本相关
 ``` javascript

@@ -5,12 +5,12 @@
         <el-input v-model="addFormData.name" autocomplete="off" />
       </el-form-item>
       <el-form-item v-show="false" label="队伍头像" :label-width="addForm.labelWidth">
-        <el-input v-model="addFormData.avater" autocomplete="off" />
+        <el-input v-model="addFormData.avatar" autocomplete="off" />
       </el-form-item>
       <el-form-item label="队伍头像" :label-width="addForm.labelWidth">
         <el-upload
             class="upload-demo"
-            action="http://localhost:5211/Team/AvaterPost"
+            action="http://localhost:5211/Team/AvatarPost"
             :on-success="handleSuccess"
             :on-error="handleError"
             :file-list="fileList"
@@ -57,7 +57,7 @@
             <el-table-column prop="name" label="队伍名称" />
             <el-table-column label="队伍头像" >
               <template #default="scope">
-                <img style="height:3rem;" :src="fileBasePath+scope.row.avater">
+                <el-avatar shape="square" size="large" :src="fileBasePath+scope.row.avatar" />
               </template>
             </el-table-column>
             <el-table-column prop="manifesto" label="队伍宣言" />
@@ -98,7 +98,7 @@ const fileBasePath = ref(import.meta.env.VITE_File_BASE_URL);
 const fileList=ref([]);
 const handleSuccess=(response, file, fileList)=> {
   console.log('上传成功', response);
-  addFormData.avater=response.data;
+  addFormData.avatar=response.data;
   // 在这里处理上传成功后的逻辑，例如更新文件列表等
 }
 const handleError=(err, file, fileList)=> {
@@ -206,7 +206,7 @@ const addForm=reactive({
 const addFormData=reactive({
   id:"",
   name:"",
-  avater:"",
+  avatar:"",
   manifesto:"",
   description:"",
 });
@@ -217,7 +217,7 @@ const addFormData=reactive({
 interface Player {
   name: string;
   manifesto:string;
-  avater:string;
+  avatar:string;
   description:string;
 }
 const tableData = reactive<Player[]>([]);

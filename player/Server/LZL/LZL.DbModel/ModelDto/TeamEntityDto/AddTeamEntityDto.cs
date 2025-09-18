@@ -16,7 +16,7 @@ namespace LZL.DbModel.ModelDto.TeamEntityDto
         /// <summary>
         /// 队伍头像
         /// </summary>
-        public string Avater { get; set; }
+        public string Avatar { get; set; }
 
         /// <summary>
         /// 队伍宣言

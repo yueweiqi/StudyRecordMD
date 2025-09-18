@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LZL.DbModel.Model;
 using LZL.DbModel.ModelDto.CurrentMatchEntityDto;
+using LZL.DbModel.ModelDto.LegendEntityDto;
 using LZL.DbModel.ModelDto.MatchEntityDto;
 using LZL.DbModel.ModelDto.PlayerEntityDto;
 using LZL.DbModel.ModelDto.TeamEntityDto;
@@ -43,13 +44,73 @@ namespace LZL.ProfileExtend
             #region 比赛
             CreateMap<AddMatchEntityDto, MatchEntity>()
                 .ForMember(dest => dest.BlueId, map => map.MapFrom(src => ObjectId.Parse(src.BlueId)))
-                .ForMember(dest => dest.RedId, map => map.MapFrom(src =>ObjectId.Parse(src.RedId)));
+                .ForMember(dest => dest.RedId, map => map.MapFrom(src =>ObjectId.Parse(src.RedId)))
+                .ForMember(dest => dest.StartTime, map => map.MapFrom<DateTime?>((src, dest) =>
+                {
+                    if (src.StartTime == null)
+                        return DateTime.MinValue;
+                    else 
+                    {
+                        DateTime dateTime = DateTime.MinValue;
+                        DateTime.TryParse(src.StartTime, out dateTime);
+                        return dateTime;
+                    }
+                        
+                }))
+                .ForMember(dest => dest.EndTime, map => map.MapFrom<DateTime?>((src, dest) =>
+                {
+                    if (src.EndTime == null)
+                        return DateTime.MinValue;
+                    else
+                    {
+                        DateTime dateTime = DateTime.MinValue;
+                        DateTime.TryParse(src.EndTime, out dateTime);
+                        return dateTime;
+                    }
+                }));
             CreateMap<MatchEntity, PageDataMatchEntityDto>()
                 .ForMember(dest => dest.Id, map => map.MapFrom(src => src.Id.ToString()))
                 .ForMember(dest => dest.BlueId, map => map.MapFrom(src => src.BlueId.ToString()))
-                .ForMember(dest => dest.RedId, map => map.MapFrom(src => src.RedId.ToString()));
+                .ForMember(dest => dest.RedId, map => map.MapFrom(src => src.RedId.ToString()))
+                .ForMember(dest => dest.StartTime, map => map.MapFrom<DateTime?>((src, dest) =>
+                {
+                    if (src.StartTime == null)
+                        return DateTime.MinValue;
+                    else
+                        return src.StartTime.Value.ToLocalTime();
+                }))
+                .ForMember(dest => dest.EndTime, map => map.MapFrom<DateTime?>((src, dest) =>
+                {
+                    if (src.EndTime == null)
+                        return DateTime.MinValue;
+                    else
+                        return src.EndTime.Value.ToLocalTime();
+                }));
 
-            CreateMap<DataMatchEntityDto, PageDataMatchEntityDto>();
+
+            CreateMap<DataMatchEntityDto, PageDataMatchEntityDto>()
+                .ForMember(dest => dest.StartTime, map => map.MapFrom<DateTime?>((src, dest) =>
+                {
+                    if (src.StartTime == null)
+                        return DateTime.MinValue;
+                    else
+                        return src.StartTime.Value.ToLocalTime();
+                }))
+                .ForMember(dest => dest.EndTime, map => map.MapFrom<DateTime?>((src, dest) =>
+                {
+                    if (src.EndTime == null)
+                        return DateTime.MinValue;
+                    else
+                        return src.EndTime.Value.ToLocalTime();
+                }));
+            #endregion
+
+            #region 英雄
+            CreateMap<AddLegendEntityDto, LegendEntity>();
+
+            CreateMap<LegendEntity, DataLegendEntityDto>();
+
+            CreateMap<LegendEntity, PageDataLegendEntityDto>();
             #endregion
         }
     }

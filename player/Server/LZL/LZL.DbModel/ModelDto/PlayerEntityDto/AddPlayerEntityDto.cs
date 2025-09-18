@@ -1,4 +1,5 @@
 ﻿using LZL.DbModel.Enums;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace LZL.DbModel.ModelDto.PlayerEntityDto
         /// 选手头像
         /// </summary>
         public string Avater { get; set; }
+        public PlayerIdentityEnum Identity { get; set; }
         /// <summary>
         /// rank分数
         /// </summary>

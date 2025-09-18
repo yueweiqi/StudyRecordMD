@@ -40,7 +40,7 @@ namespace LZL.DbModel.ModelDto.CurrentMatchEntityDto
         public string? StartTimeStr { get {
                 if (StartTime == null)
                     return "";
-                return StartTime.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                return StartTime.Value.ToString("yyyy-MM-dd HH:mm:ss");
             } }
         public DateTime? EndTime { get; set; }
         public string? EndTimeStr
@@ -49,7 +49,7 @@ namespace LZL.DbModel.ModelDto.CurrentMatchEntityDto
             {
                 if (EndTime == null)
                     return "";
-                return EndTime.Value.ToString("yyyy-MM-dd hh:mm:ss");
+                return EndTime.Value.ToString("yyyy-MM-dd HH:mm:ss");
             }
         }
         public ProgressStateEnum State { get; set; }

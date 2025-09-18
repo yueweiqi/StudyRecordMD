@@ -4,8 +4,7 @@ using LZL.DbModel.Model;
 using LZL.DbModel.ModelDto.CurrentMatchEntityDto;
 using LZL.DbModel.ModelDto.MatchEntityDto;
 using LZL.DbModel.ModelDto.PlayerEntityDto;
-using LZL.DbModel.ModelDto.ProgressEntityDto.cs;
-using LZL.DbModel.ModelDto.TeamEntityDto;
+using LZL.DbModel.ModelDto.ProgressEntityDto;
 using LZL.DbModel.Utility;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
@@ -65,6 +64,16 @@ namespace LZL.Controllers
                     ))
                     .SortBy(s=>s.Position)
                     .ToList();
+
+                var blueHeightList = blueList
+                    .Select(s => new { s.Id, s.RankScore })
+                    .OrderByDescending(s => s.RankScore)
+                    .ToList();
+                for (int i = 0; i < blueHeightList.Count; i++)
+                {
+                    blueList.FirstOrDefault(f => f.Id == blueHeightList[i].Id).Height = (i + 1);
+                }
+
                 dataCurrentMatch.BluePlayerList = blueList;
                 #endregion
 
@@ -75,6 +84,17 @@ namespace LZL.Controllers
                     ))
                     .SortBy(s => s.Position)
                     .ToList();
+
+                var redHeightList = redList
+                    .Select(s => new { s.Id, s.RankScore })
+                    .OrderByDescending(s => s.RankScore)
+                    .ToList();
+                for (int i = 0; i < redHeightList.Count; i++)
+                {
+                    redList.FirstOrDefault(f => f.Id == redHeightList[i].Id).Height = (i + 1);
+                }
+
+
                 dataCurrentMatch.RedPlayerList = redList;
                 #endregion
             }
@@ -94,7 +114,7 @@ namespace LZL.Controllers
         public IActionResult Add([FromBody] AddMatchEntityDto addMatchEntityDto)
         {
             var collection = _Database.GetCollection<MatchEntity>(_MatchName);
-
+            
             var entity = _Mapper.Map<MatchEntity>(addMatchEntityDto);
             entity.State = ProgressStateEnum.None;
             collection.InsertOne(entity);
@@ -115,6 +135,30 @@ namespace LZL.Controllers
 
             collection.UpdateOne(w => w.Id == updateCurrentMatchPlayerDto.Id, currentDefinition);
 
+            if (!string.IsNullOrEmpty(updateCurrentMatchPlayerDto.StartTime)) 
+            {
+                DateTime dateTime = DateTime.Now;
+                if (DateTime.TryParse(updateCurrentMatchPlayerDto.StartTime, out dateTime)) 
+                {
+                    var currentDefinition2= Builders<MatchEntity>.Update
+                            .Set(p => p.StartTime, dateTime);
+
+                    collection.UpdateOne(w => w.Id == updateCurrentMatchPlayerDto.Id, currentDefinition2);
+                }
+               
+            }
+            if (!string.IsNullOrEmpty(updateCurrentMatchPlayerDto.EndTime))
+            {
+                DateTime dateTime = DateTime.Now;
+                if (DateTime.TryParse(updateCurrentMatchPlayerDto.EndTime, out dateTime))
+                {
+                    var currentDefinition2 = Builders<MatchEntity>.Update
+                            .Set(p => p.EndTime, dateTime);
+
+                    collection.UpdateOne(w => w.Id == updateCurrentMatchPlayerDto.Id, currentDefinition2);
+                }
+
+            }
             return Ok();
         }
 

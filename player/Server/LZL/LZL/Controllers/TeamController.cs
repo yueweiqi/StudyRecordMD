@@ -47,7 +47,7 @@ namespace LZL.Controllers
             var collection = _Database.GetCollection<TeamEntity>(_TeamDbName);
             var udpateDefinition = Builders<TeamEntity>.Update
                 .Set(p => p.Name, updateTeamEntityDto.Name)
-                .Set(p => p.Avater, updateTeamEntityDto.Avater)
+                .Set(p => p.Avatar, updateTeamEntityDto.Avatar)
                 .Set(p => p.Manifesto, updateTeamEntityDto.Manifesto)
                 .Set(p => p.Description, updateTeamEntityDto.Description);
             collection.UpdateOne(u => u.Id ==updateTeamEntityDto.Id, udpateDefinition);
@@ -111,9 +111,9 @@ namespace LZL.Controllers
         #region 队伍头像上传
         [HttpPost]
         [HttpPost]
-        public IActionResult AvaterPost([FromForm] IFormFile file)
+        public IActionResult AvatarPost([FromForm] IFormFile file)
         {
-            string folderPath = "Resource/Team/Avater";
+            string folderPath = "Resource/Team/Avatar";
             string dirPath = AppContext.BaseDirectory + folderPath;            
             if(!Directory.Exists(dirPath))
                 Directory.CreateDirectory(dirPath);

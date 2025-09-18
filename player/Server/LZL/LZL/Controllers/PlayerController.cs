@@ -56,6 +56,7 @@ namespace LZL.Controllers
                 herosList = updatePlayerEntityDto.SkilledHeros.Split(",").ToList();
 
             var udpateDefinition = Builders<PlayerEntity>.Update
+                .Set(p=>p.Identity,updatePlayerEntityDto.Identity)
                 .Set(p => p.Name, updatePlayerEntityDto.Name)
                 .Set(p => p.TeamId, updatePlayerEntityDto.TeamId)
                 .Set(p => p.Position, updatePlayerEntityDto.Position)
@@ -103,8 +104,20 @@ namespace LZL.Controllers
                     Description = positionEnum.GetDescription()
                 });
             }
+
+            List<DataPlayerIdentityEnumDto> iList = new();
+            foreach (PlayerIdentityEnum positionEnum in Enum.GetValues(typeof(PlayerIdentityEnum)))
+            {
+                iList.Add(new DataPlayerIdentityEnumDto()
+                {
+                    Id = (int)positionEnum,
+                    Name = positionEnum.ToString(),
+                    Description = positionEnum.GetDescription()
+                });
+            }
             addPlayerEntityInitDto.DataPositionEnumDtos = pList;
             addPlayerEntityInitDto.DataRankNameEnumDtos= rList;
+            addPlayerEntityInitDto.DataPlayerIdentityEnumDtos= iList;
             return Json(new { Data = addPlayerEntityInitDto });
         }
         [HttpPost]

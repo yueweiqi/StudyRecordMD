@@ -25,8 +25,8 @@ namespace LZL.DbModel.ModelDto.CurrentMatchEntityDto
         public string RedId { get; set; }
         public int RedScore { get; set; }
 
-        public DateTime? StartTime { get; set; }
-        public DateTime? EndTime { get; set; }
+        public string? StartTime { get; set; }
+        public string? EndTime { get; set; }
 
     }
 }

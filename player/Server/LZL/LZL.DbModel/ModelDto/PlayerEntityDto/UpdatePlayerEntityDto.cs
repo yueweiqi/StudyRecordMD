@@ -14,7 +14,7 @@ namespace LZL.DbModel.ModelDto.PlayerEntityDto
         /// 选手姓名
         /// </summary>
         public string Name { get; set; }
-
+        public PlayerIdentityEnum Identity { get; set; }
         public string TeamId { get; set; }
         /// <summary>
         /// 选手位置

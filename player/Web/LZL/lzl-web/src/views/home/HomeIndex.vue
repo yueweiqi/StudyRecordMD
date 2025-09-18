@@ -21,11 +21,16 @@
           <el-icon><icon-menu /></el-icon>
           <span>比赛管理</span>
         </el-menu-item>
-        <el-menu-item index="4" @click="menuItemOutClick('/CurrentMatchView')">
+        <el-menu-item index="4" @click="menuItemClick(LegendView)">
+          <el-icon><icon-menu /></el-icon>
+          <span>英雄管理</span>
+        </el-menu-item>
+        <el-menu-item index="5" @click="menuItemOutClick('/CurrentMatchView')">
           <el-icon><icon-menu /></el-icon>
           <span>选手信息展示</span>
         </el-menu-item>
-        <el-menu-item index="5" v-show="false">
+
+        <el-menu-item index="6" v-show="false">
           <el-icon><setting /></el-icon>
           <span>设置</span>
         </el-menu-item>
@@ -48,6 +53,7 @@ import { userCodeStore } from '../../stores/userCodeStore'
 import PlayerView from '@/views/baseview/PlayerView.vue'
 import TeamView from '@/views/baseview/TeamView.vue'
 import CurrentMatchView from '@/views/baseview/MatchView.vue'
+import LegendView from '@/views/baseview/LegendView.vue'
 
 const userCode=userCodeStore();
 const router=useRouter()

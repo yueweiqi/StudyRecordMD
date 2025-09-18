@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LZL.DbModel.ModelDto.ProgressEntityDto.cs
+namespace LZL.DbModel.ModelDto.ProgressEntityDto
 {
     public record DataProgressEntityDto
     {

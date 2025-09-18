@@ -4,6 +4,7 @@
       <el-form-item label="选手姓名" :label-width="addForm.labelWidth">
         <el-input v-model="addFormData.name" autocomplete="off" />
       </el-form-item>
+
       <el-form-item label="队伍名称" :label-width="addForm.labelWidth">
       <el-select
                 v-model="addFormData.teamId"
@@ -16,8 +17,18 @@
                   :value="item.id"
                   :label="item.name"
                 />
-              </el-select>
+       </el-select>
     </el-form-item>
+    <el-form-item label="选手身份" :label-width="addForm.labelWidth">
+        <el-radio-group v-model="addFormData.identity">
+            <el-radio v-for="item in addFormInit.dataPlayerIdentityEnumDtos"
+                  :key="item.id"
+                  :value="item.id"
+                  :label="item.description"
+                  size="large"
+            />
+        </el-radio-group>
+      </el-form-item>
       <el-form-item label="选手位置" :label-width="addForm.labelWidth">
 
         <el-radio-group v-model="addFormData.position">
@@ -100,7 +111,14 @@
   <el-row class="p-3">
         <el-col :span="24">
           <el-table :data="tableData" style="width: 100%">
-            <el-table-column prop="name" label="选手名称" />
+            <el-table-column prop="name" label="选手名称" >
+              <template #default="scope">
+                <el-tag v-show="scope.row.identity==0" class="ml-2" type="info">{{ scope.row.identityStr }}</el-tag>
+                <el-tag v-show="scope.row.identity==1" class="ml-2" type="warning">{{ scope.row.identityStr }}</el-tag>
+                {{ scope.row.name }}
+
+               </template>
+            </el-table-column>
             <el-table-column prop="team[0].name" label="队伍名称" />
             <el-table-column prop="positionStr" label="选手位置" />
             <el-table-column prop="rankNameStr" label="分段" />
@@ -174,6 +192,7 @@ const onUpdateClick=(row)=>{
 
   addFormData.id=row.id;
   addFormData.name=row.name;
+  addFormData.identity=row.identity;
   addFormData.teamId=row.teamId;
   addFormData.position=row.position;
   addFormData.rankScore=row.rankScore;
@@ -189,6 +208,7 @@ const onUpdateClick=(row)=>{
 
 //#region 添加
 const onAddClick=()=>{
+  addFormData.id="";
   addForm.addOrUpdate=1;
   addForm.visible=true;
   addForm.aOrUText="添加";
@@ -201,9 +221,11 @@ interface DataEnumDto{
 const addFormInit=reactive<{
   dataPositionEnumDtos:DataEnumDto[];
   dataRankNameEnumDtos:DataEnumDto[];
+  dataPlayerIdentityEnumDtos:DataEnumDto[];
 }>({
   dataPositionEnumDtos:[],
-  dataRankNameEnumDtos:[]
+  dataRankNameEnumDtos:[],
+  dataPlayerIdentityEnumDtos:[]
 });
 
 const onaddFromClick=()=>{
@@ -240,6 +262,7 @@ const addForm=reactive({
 const addFormData=reactive({
   id:"",
   name:"",
+  identity:0,
   teamId:"",
   position:1,
   avater:"",
@@ -298,6 +321,7 @@ onMounted(()=>{
       console.log(res);
       addFormInit.dataPositionEnumDtos.splice(0, addFormInit.dataPositionEnumDtos.length, ...res.data.data.dataPositionEnumDtos);
       addFormInit.dataRankNameEnumDtos.splice(0, addFormInit.dataRankNameEnumDtos.length, ...res.data.data.dataRankNameEnumDtos);
+      addFormInit.dataPlayerIdentityEnumDtos.splice(0, addFormInit.dataPlayerIdentityEnumDtos.length, ...res.data.data.dataPlayerIdentityEnumDtos);
    });
    pageDataChange();
 });

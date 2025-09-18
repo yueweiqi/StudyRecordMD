@@ -33,6 +33,9 @@ namespace LZL.DbModel.Model
         /// 选手头像
         /// </summary>
         public string Avater { get; set; }
+
+        [BsonDefaultValue(PlayerIdentityEnum.None)]
+        public PlayerIdentityEnum Identity { get; set; }
         /// <summary>
         /// rank分数
         /// </summary>

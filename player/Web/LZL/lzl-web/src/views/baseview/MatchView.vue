@@ -47,6 +47,8 @@
         v-model="addFormData.startTime"
         type="datetime"
         placeholder="Select date and time"
+        format="YYYY/MM/DD HH:mm:ss"
+        value-format="YYYY-MM-DD HH:mm:ss"
       />
       </el-col>
       <el-col :span="2" class="text-center">
@@ -57,6 +59,8 @@
         v-model="addFormData.endTime"
         type="datetime"
         placeholder="Select date and time"
+        format="YYYY/MM/DD HH:mm:ss"
+        value-format="YYYY-MM-DD HH:mm:ss"
       />
       </el-col>
     </el-form-item>
@@ -206,6 +210,8 @@
    addFormData.blueScore=row.blueScore;
    addFormData.redId=row.redId;
    addFormData.redScore=row.redScore;
+   addFormData.startTime=row.startTime;
+   addFormData.endTime=row.endTime;
 
    addForm.addOrUpdate=2;
    addForm.aOrUText="修改";
@@ -259,8 +265,8 @@
    blueScore:0,
    redId:"",
    redScore:0,
-   startTime:new Date(),
-   endTime:new Date()
+   startTime:'',
+   endTime:''
  });
  //#endregion
 

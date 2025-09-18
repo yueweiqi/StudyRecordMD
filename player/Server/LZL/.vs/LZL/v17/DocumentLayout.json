@@ -1,0 +1,342 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\lol\\player\\Server\\LZL\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{944326AA-8236-4D34-A830-1C440AA60F9C}|LZL\\LZL.csproj|d:\\lol\\player\\server\\lzl\\lzl\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{944326AA-8236-4D34-A830-1C440AA60F9C}|LZL\\LZL.csproj|solutionrelative:lzl\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{944326AA-8236-4D34-A830-1C440AA60F9C}|LZL\\LZL.csproj|d:\\lol\\player\\server\\lzl\\lzl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{944326AA-8236-4D34-A830-1C440AA60F9C}|LZL\\LZL.csproj|solutionrelative:lzl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{944326AA-8236-4D34-A830-1C440AA60F9C}|LZL\\LZL.csproj|d:\\lol\\player\\server\\lzl\\lzl\\controllers\\matchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{944326AA-8236-4D34-A830-1C440AA60F9C}|LZL\\LZL.csproj|solutionrelative:lzl\\controllers\\matchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\modeldto\\playerentitydto\\dataplayerentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\modeldto\\playerentitydto\\dataplayerentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\modeldto\\playerentitydto\\pagedataplayerentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\modeldto\\playerentitydto\\pagedataplayerentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{944326AA-8236-4D34-A830-1C440AA60F9C}|LZL\\LZL.csproj|d:\\lol\\player\\server\\lzl\\lzl\\profileextend\\customautomapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{944326AA-8236-4D34-A830-1C440AA60F9C}|LZL\\LZL.csproj|solutionrelative:lzl\\profileextend\\customautomapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\modeldto\\teamentitydto\\pagedatateamentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\modeldto\\teamentitydto\\pagedatateamentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\modeldto\\playerentitydto\\selectdataplayerentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\modeldto\\playerentitydto\\selectdataplayerentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\modeldto\\playerentitydto\\updateplayerentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\modeldto\\playerentitydto\\updateplayerentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\modeldto\\playerentitydto\\addplayerentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\modeldto\\playerentitydto\\addplayerentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\modeldto\\matchentitydto\\updatematchentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\modeldto\\matchentitydto\\updatematchentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\modeldto\\matchentitydto\\selectpagedatamatchentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\modeldto\\matchentitydto\\selectpagedatamatchentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\modeldto\\matchentitydto\\pagedatamatchentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\modeldto\\matchentitydto\\pagedatamatchentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\modeldto\\matchentitydto\\deletematchentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\modeldto\\matchentitydto\\deletematchentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\model\\matchentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\model\\matchentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\modeldto\\matchentitydto\\updatematchprogressstatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\modeldto\\matchentitydto\\updatematchprogressstatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\modeldto\\matchentitydto\\addmatchentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\modeldto\\matchentitydto\\addmatchentitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|d:\\lol\\player\\server\\lzl\\lzl.dbmodel\\model\\progressentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}|LZL.DbModel\\LZL.DbModel.csproj|solutionrelative:lzl.dbmodel\\model\\progressentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 79,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL\\Program.cs",
+              "RelativeDocumentMoniker": "LZL\\Program.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL\\Program.cs",
+              "RelativeToolTip": "LZL\\Program.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAAwD0AAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T09:10:36.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataPlayerEntityDto.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\PlayerEntityDto\\DataPlayerEntityDto.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\ModelDto\\PlayerEntityDto\\DataPlayerEntityDto.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\PlayerEntityDto\\DataPlayerEntityDto.cs",
+              "RelativeToolTip": "LZL.DbModel\\ModelDto\\PlayerEntityDto\\DataPlayerEntityDto.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAA1wDQAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T07:55:27.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TeamController.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL\\Controllers\\TeamController.cs",
+              "RelativeDocumentMoniker": "LZL\\Controllers\\TeamController.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL\\Controllers\\TeamController.cs",
+              "RelativeToolTip": "LZL\\Controllers\\TeamController.cs",
+              "ViewState": "AQIAAG4AAAAAAAAAAADwv4IAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T06:53:30.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CustomAutoMapperProfile.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL\\ProfileExtend\\CustomAutoMapperProfile.cs",
+              "RelativeDocumentMoniker": "LZL\\ProfileExtend\\CustomAutoMapperProfile.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL\\ProfileExtend\\CustomAutoMapperProfile.cs",
+              "RelativeToolTip": "LZL\\ProfileExtend\\CustomAutoMapperProfile.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAwCgAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T06:55:06.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PageDataPlayerEntityDto.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\PlayerEntityDto\\PageDataPlayerEntityDto.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\ModelDto\\PlayerEntityDto\\PageDataPlayerEntityDto.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\PlayerEntityDto\\PageDataPlayerEntityDto.cs",
+              "RelativeToolTip": "LZL.DbModel\\ModelDto\\PlayerEntityDto\\PageDataPlayerEntityDto.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAYwDAAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:36:16.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PageDataTeamEntityDto.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\TeamEntityDto\\PageDataTeamEntityDto.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\ModelDto\\TeamEntityDto\\PageDataTeamEntityDto.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\TeamEntityDto\\PageDataTeamEntityDto.cs",
+              "RelativeToolTip": "LZL.DbModel\\ModelDto\\TeamEntityDto\\PageDataTeamEntityDto.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAADwvw4AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:39:02.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MatchController.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL\\Controllers\\MatchController.cs",
+              "RelativeDocumentMoniker": "LZL\\Controllers\\MatchController.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL\\Controllers\\MatchController.cs",
+              "RelativeToolTip": "LZL\\Controllers\\MatchController.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAADwv3cAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T06:53:29.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SelectDataPlayerEntityDto.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\PlayerEntityDto\\SelectDataPlayerEntityDto.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\ModelDto\\PlayerEntityDto\\SelectDataPlayerEntityDto.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\PlayerEntityDto\\SelectDataPlayerEntityDto.cs",
+              "RelativeToolTip": "LZL.DbModel\\ModelDto\\PlayerEntityDto\\SelectDataPlayerEntityDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvw0AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:41:59.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UpdatePlayerEntityDto.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\PlayerEntityDto\\UpdatePlayerEntityDto.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\ModelDto\\PlayerEntityDto\\UpdatePlayerEntityDto.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\PlayerEntityDto\\UpdatePlayerEntityDto.cs",
+              "RelativeToolTip": "LZL.DbModel\\ModelDto\\PlayerEntityDto\\UpdatePlayerEntityDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvxAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:41:57.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AddPlayerEntityDto.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\PlayerEntityDto\\AddPlayerEntityDto.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\ModelDto\\PlayerEntityDto\\AddPlayerEntityDto.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\PlayerEntityDto\\AddPlayerEntityDto.cs",
+              "RelativeToolTip": "LZL.DbModel\\ModelDto\\PlayerEntityDto\\AddPlayerEntityDto.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAADwvxAAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:41:22.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SelectPageDataMatchEntityDto.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\MatchEntityDto\\SelectPageDataMatchEntityDto.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\ModelDto\\MatchEntityDto\\SelectPageDataMatchEntityDto.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\MatchEntityDto\\SelectPageDataMatchEntityDto.cs",
+              "RelativeToolTip": "LZL.DbModel\\ModelDto\\MatchEntityDto\\SelectPageDataMatchEntityDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:41:11.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PageDataMatchEntityDto.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\MatchEntityDto\\PageDataMatchEntityDto.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\ModelDto\\MatchEntityDto\\PageDataMatchEntityDto.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\MatchEntityDto\\PageDataMatchEntityDto.cs",
+              "RelativeToolTip": "LZL.DbModel\\ModelDto\\MatchEntityDto\\PageDataMatchEntityDto.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAowCAAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:40:47.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DeleteMatchEntityDto.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\MatchEntityDto\\DeleteMatchEntityDto.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\ModelDto\\MatchEntityDto\\DeleteMatchEntityDto.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\MatchEntityDto\\DeleteMatchEntityDto.cs",
+              "RelativeToolTip": "LZL.DbModel\\ModelDto\\MatchEntityDto\\DeleteMatchEntityDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:40:46.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MatchEntity.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\Model\\MatchEntity.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\Model\\MatchEntity.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\Model\\MatchEntity.cs",
+              "RelativeToolTip": "LZL.DbModel\\Model\\MatchEntity.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAIwCAAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T03:39:31.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UpdateMatchEntityDto.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\MatchEntityDto\\UpdateMatchEntityDto.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\ModelDto\\MatchEntityDto\\UpdateMatchEntityDto.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\MatchEntityDto\\UpdateMatchEntityDto.cs",
+              "RelativeToolTip": "LZL.DbModel\\ModelDto\\MatchEntityDto\\UpdateMatchEntityDto.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T06:54:26.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ProgressEntity.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\Model\\ProgressEntity.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\Model\\ProgressEntity.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\Model\\ProgressEntity.cs",
+              "RelativeToolTip": "LZL.DbModel\\Model\\ProgressEntity.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAADwvxEAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T09:39:32.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UpdateMatchProgressStateDto.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\MatchEntityDto\\UpdateMatchProgressStateDto.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\ModelDto\\MatchEntityDto\\UpdateMatchProgressStateDto.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\MatchEntityDto\\UpdateMatchProgressStateDto.cs",
+              "RelativeToolTip": "LZL.DbModel\\ModelDto\\MatchEntityDto\\UpdateMatchProgressStateDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T02:41:31.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AddMatchEntityDto.cs",
+              "DocumentMoniker": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\MatchEntityDto\\AddMatchEntityDto.cs",
+              "RelativeDocumentMoniker": "LZL.DbModel\\ModelDto\\MatchEntityDto\\AddMatchEntityDto.cs",
+              "ToolTip": "D:\\lol\\player\\Server\\LZL\\LZL.DbModel\\ModelDto\\MatchEntityDto\\AddMatchEntityDto.cs",
+              "RelativeToolTip": "LZL.DbModel\\ModelDto\\MatchEntityDto\\AddMatchEntityDto.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAAAB0AAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T06:54:41.083Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -4,3 +4,7 @@
 /player/Server/LZL/LZL/obj
 /player/WEb/LZL/lzl-web/dist
 /player/WEb/LZL/lzl-web/node_modules
+/player/Server/LZL/.vs
+/player/Server/LZL/LZL.DbModel/bin
+bin
+/player/Server/LZL/LZL.DbModel/obj

@@ -156,10 +156,11 @@ const timeDuration = computed(() => {
   const mTime=new Date(currentMatchData.currentMatch.startTime);
   const nowTime=new Date();
   const timeDiff = mTime.getTime() - nowTime.getTime();
-
+  console.log("后端时间"+mTime);
+  console.log("前端时间"+nowTime);
   // 将毫秒转换为秒
   let secondsDiff:number = Math.ceil(timeDiff / 1000);
-  console.log(secondsDiff);
+  console.log("相差秒数"+secondsDiff);
   if(secondsDiff<0)
       secondsDiff=0;
   return secondsDiff;

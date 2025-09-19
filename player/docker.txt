@@ -1,0 +1,36 @@
+
+
+docker build -f "Dockerfile-nobuild" -t "42.193.119.71:5000/lzl:1.0" .
+
+docker push 42.193.119.71:5000/lzl:1.0
+
+
+
+
+
+docker pull 42.193.119.71:5000/lzl:1.0
+
+
+
+-- 命令顺序很重要！！！！挂载目录要在镜像前面！！！！！！还要设置时区！！！！
+docker run -d --name lzl -p 8010:8080 -v /home/app/lzl/Resource/Legend/Avatar:/app/Resource/Legend/Avatar -v /home/app/lzl/Resource/Team/Avatar:/app/Resource/Team/Avatar  -v /home/app/lzl/appsettings.json:/app/appsettings.json -e TZ=Asia/Shanghai 42.193.119.71:5000/lzl:1.0
+
+
+
+-- 删除重复版本镜像  tag为[none]
+ docker rmi $(docker images -f "dangling=true" -q)
+
+
+
+
+-- 前端
+
+-- 需要先复制一下默认容器的配置文件到宿主机上,还有一大推，网上查查
+docker cp nginx:/etc/nginx/nginx.conf /home/app/lzl/nginx/conf
+docker cp nginx:/etc/nginx/conf.d /home/app/lzl/nginx/conf
+docker cp nginx:/usr/share/nginx/html /home/app/lzl/nginx
+
+-- 启动容器 ！！！ 还要设置时区！！！！
+docker run --restart=always -d --name lzlWeb -p 8020:80 -v /home/app/lzl/nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v /home/app/lzl/nginx/conf/conf.d:/etc/nginx/conf.d -v /home/app/lzl/nginx/log:/var/log/nginx -v /home/app/lzl/nginx/html:/usr/share/nginx/html -v /mnt/volumn:/mnt/volumn -e TZ=Asia/Shanghai nginx:latest
+
+

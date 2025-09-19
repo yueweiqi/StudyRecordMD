@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LZL.DbModel.Enums
+{
+    public enum RankNameEnum
+    {
+        [Description("无分段")]
+        None = 0,
+        [Description("最强王者")]
+        WangZhe =1,
+        [Description("傲视宗师")]
+        ZongShi = 2,
+        [Description("超凡大师")]
+        DaShi = 3,
+        [Description("钻石一")]
+        ZuanOne = 4,
+        [Description("钻石二")]
+        ZuanTwo = 5,
+        [Description("钻石三")]
+        ZuanThree = 6,
+        //[Description("钻石四")]
+        //ZuanFour = 7,
+        //[Description("钻石五")]
+        //ZuanFive = 8,
+    }
+}

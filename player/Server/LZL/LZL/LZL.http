@@ -1,0 +1,6 @@
+@LZL_HostAddress = http://localhost:5211
+
+GET {{LZL_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZL", "LZL\LZL.csproj", "{944326AA-8236-4D34-A830-1C440AA60F9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZL.DbModel", "LZL.DbModel\LZL.DbModel.csproj", "{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{944326AA-8236-4D34-A830-1C440AA60F9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{944326AA-8236-4D34-A830-1C440AA60F9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{944326AA-8236-4D34-A830-1C440AA60F9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{944326AA-8236-4D34-A830-1C440AA60F9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3664B96A-B8A1-46F4-ACA5-CB1B5C6DACEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61679EA2-9C59-483F-AA8B-FDF5206ECD7B}
+	EndGlobalSection
+EndGlobal

@@ -116,7 +116,7 @@ import.meta.env.SSR: {boolean} 应用是否运行在 server 上。
 ###### Vite只有以***VITE_*** 为前缀的变量才会暴露在import.meta.env对象下
 ``` javascript
 VITE_SOME_KEY=123
-//通过import.meta.env.VITE_SOME_KEY
+//通过import.meta.env.VITE_SOME_KEY 获取
 DB_PASSWORD=foobar
 ```
 ###### .env文件

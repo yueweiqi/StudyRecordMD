@@ -15,13 +15,6 @@ namespace LZL.ProfileExtend
         {
             #region 选手
             CreateMap<AddPlayerEntityDto, PlayerEntity>()
-                 .ForMember(dest => dest.SkilledHeros, map => map.MapFrom<List<string>>((src, dest) =>
-                 {
-                     if (string.IsNullOrEmpty(src.SkilledHeros))
-                         return new List<string>();
-                     else
-                         return src.SkilledHeros.Split(',').ToList();
-                 }))
                  .ForMember(dest => dest.TeamId, map => map.MapFrom(src => ObjectId.Parse(src.TeamId)));
 
             CreateMap<PlayerEntity, DataPlayerEntityDto>();

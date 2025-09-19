@@ -65,7 +65,31 @@
         <el-input v-model="addFormData.school" autocomplete="off" />
       </el-form-item>
       <el-form-item label="擅长英雄" :label-width="addForm.labelWidth">
-        <el-input v-model="addFormData.skilledHeros" autocomplete="off" />
+
+        <el-row class="w-100">
+          <el-col :span="4" v-for="item in addFormData.skilledHeros" :key="item">
+            <div class="d-flex flex-column align-items-center mt-1">
+              <el-avatar shape="square" size="large" :src="fileBasePath+item.avatar" />
+              <el-button class="mt-1" @click="onAddLegendDeleteClick(item.id)">删除</el-button>
+            </div>
+          </el-col>
+        </el-row>
+        <el-row class="w-100">
+          <el-col :span="12">
+            <el-select v-model="addLegendSelect" placeholder="选择一位英雄">
+              <el-option v-for="item in legendList"
+                  :key="item.id"
+                  :value="item.id"
+                  :label="item.name"
+                />
+            </el-select>
+
+          </el-col>
+          <el-col :span="12">
+            <el-button class="mt-1" @click="onAddLegendSelectClick">添加</el-button>
+          </el-col>
+        </el-row>
+
       </el-form-item>
     </el-form>
     <template #footer>
@@ -126,7 +150,13 @@
             <el-table-column prop="school" label="学校" />
             <el-table-column  label="擅长英雄" >
               <template #default="scope">
-                {{ scope.row.skilledHeros.join(",") }}
+
+                 <el-avatar
+                 class="ms-1"
+                 v-for="item in scope.row.skilledHeros"
+                 :key="item" shape="square" size="large"
+                 :src="fileBasePath+item.avatar" />
+
                </template>
             </el-table-column>
             <el-table-column fixed="right" label="操作" width="250">
@@ -158,6 +188,7 @@ import http from '@/utils/http'
 import {useRouter} from 'vue-router'
 import { userCodeStore } from '@/stores/userCodeStore'
 import { ElMessage } from 'element-plus'
+const fileBasePath = ref(import.meta.env.VITE_File_BASE_URL);
 
 const userCode=userCodeStore();
 const router=useRouter()
@@ -170,6 +201,23 @@ const teamList=reactive([
     name:'',
   }
 ]);
+//#region 添加英雄
+const addLegendSelect=ref('');
+const legendList=reactive([]);
+const onAddLegendSelectClick=()=>{
+  const legendData=legendList.find(f=>f.id==addLegendSelect.value);
+  if(legendData!=undefined&&legendData!=null){
+    addFormData.skilledHeros.push(legendData)
+  }
+
+}
+const onAddLegendDeleteClick=(legendId)=>{
+  const index = addFormData.skilledHeros.findIndex(item => item.id === legendId); // 找到元素的索引
+  if (index !== -1) {
+      addFormData.skilledHeros.splice(index, 1); // 如果找到了，则删除该元素
+  }
+}
+//#endregion
 
 //#region 删除
 const onDeleteClick=(row)=>{
@@ -198,7 +246,7 @@ const onUpdateClick=(row)=>{
   addFormData.rankScore=row.rankScore;
   addFormData.rankName=row.rankName;
   addFormData.school=row.school;
-  addFormData.skilledHeros=row.skilledHeros.join(',');
+  addFormData.skilledHeros=row.skilledHeros;
   addForm.addOrUpdate=2;
   addForm.aOrUText="修改";
   addForm.visible=true;
@@ -269,7 +317,7 @@ const addFormData=reactive({
   rankScore:0,
   rankName:0,
   school:"",
-  skilledHeros:""
+  skilledHeros:[]
 });
 //#endregion
 
@@ -309,6 +357,9 @@ const pageDataChange=()=>{
 //#endregion
 
 //#region 初始化
+
+
+
 onMounted(()=>{
   if(userCode.codeVerify==false){
     router.push("login");
@@ -316,6 +367,10 @@ onMounted(()=>{
    http.get("/Team/GetAll").then((res)=>{
       console.log(res);
       teamList.splice(0, teamList.length, ...res.data.data);
+   });
+   http.get("/Legend/GetAll").then((res)=>{
+      console.log(res);
+      legendList.splice(0, legendList.length, ...res.data.data);
    });
    http.get("/Player/GetAddInit").then((res)=>{
       console.log(res);

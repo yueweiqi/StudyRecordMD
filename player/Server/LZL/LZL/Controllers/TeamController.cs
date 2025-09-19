@@ -114,23 +114,29 @@ namespace LZL.Controllers
         public IActionResult AvatarPost([FromForm] IFormFile file)
         {
             string folderPath = "Resource/Team/Avatar";
-            string dirPath = AppContext.BaseDirectory + folderPath;            
-            if(!Directory.Exists(dirPath))
+            string dirPath = AppContext.BaseDirectory + folderPath;
+            if (!Directory.Exists(dirPath))
                 Directory.CreateDirectory(dirPath);
             string suffix = file.FileName.Split(".")[file.FileName.Split(".").Length - 1];
 
             string fileReName = $"{Guid.NewGuid().ToString()}.{suffix}";
 
             string completeFileName = $"{dirPath}/{fileReName}";
-            using (var stream=file.OpenReadStream()) 
+            using (var stream = file.OpenReadStream())
             {
                 using (FileStream fileStream = new FileStream(completeFileName, FileMode.Create, FileAccess.Write))
                 {
                     stream.CopyTo(fileStream); // 将Stream内容复制到新文件
                 }
             }
-            return Json(new {Data= $"{folderPath}/{fileReName}" });
+            return Json(new { Data = $"{folderPath}/{fileReName}" });
         }
         #endregion
+
+        [HttpGet]
+        public IActionResult Test([FromServices] IConfiguration configuration) 
+        {
+            return Json(configuration.GetSection("Test").Value.ToString());
+        }
     }
 }

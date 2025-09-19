@@ -16,7 +16,8 @@ export default defineConfig(
   console.log(mode);
   const env = loadEnv(mode, process.cwd(), '')
   return {
-    base: mode === 'production' ? `/usage/` : `/`,
+    //base: mode === 'production' ? `/usage/` : `/`,
+    base: `/`,
     plugins: [
       vue(),
       vueDevTools(),

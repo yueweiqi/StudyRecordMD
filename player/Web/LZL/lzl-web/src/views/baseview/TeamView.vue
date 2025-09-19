@@ -8,15 +8,18 @@
         <el-input v-model="addFormData.avatar" autocomplete="off" />
       </el-form-item>
       <el-form-item label="队伍头像" :label-width="addForm.labelWidth">
+        <div class="flex-column"><el-avatar shape="square" size="large" :src="fileBasePath+addFormData.avatar" />
         <el-upload
             class="upload-demo"
-            action="http://localhost:5211/Team/AvatarPost"
+            :action="httpBasePath+ '/Team/AvatarPost'"
             :on-success="handleSuccess"
             :on-error="handleError"
             :file-list="fileList"
+            :show-file-list="false"
             :before-upload="beforeUpload">
             <el-button size="small" type="primary">点击上传</el-button>
-          </el-upload>
+          </el-upload></div>
+
       </el-form-item>
       <el-form-item label="队伍宣言" :label-width="addForm.labelWidth">
         <el-input v-model="addFormData.manifesto" autocomplete="off" />
@@ -93,6 +96,7 @@ import { userCodeStore } from '@/stores/userCodeStore'
 import { ElMessage } from 'element-plus'
 
 const fileBasePath = ref(import.meta.env.VITE_File_BASE_URL);
+const httpBasePath = import.meta.env.VITE_API_BASE_URL+import.meta.env.VITE_API_Proxy_PATH;
 
 //#region 文件上传
 const fileList=ref([]);
@@ -157,7 +161,7 @@ const onUpdateClick=(row)=>{
   addFormData.name=row.name;
   addFormData.manifesto=row.manifesto;
   addFormData.description=row.description;
-
+  addFormData.avatar=row.avatar;
   addForm.addOrUpdate=2;
   addForm.aOrUText="修改";
   addForm.visible=true;

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LZL.DbModel.Model;
 
 namespace LZL.DbModel.ModelDto.PlayerEntityDto
 {
@@ -63,6 +64,6 @@ namespace LZL.DbModel.ModelDto.PlayerEntityDto
         /// <summary>
         /// 擅长英雄
         /// </summary>
-        public List<string> SkilledHeros { get; set; } = new List<string>();
+        public List<LegendEntity> SkilledHeros { get; set; } = new List<LegendEntity>();
     }
 }

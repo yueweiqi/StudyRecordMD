@@ -51,6 +51,6 @@ namespace LZL.DbModel.Model
         /// <summary>
         /// 擅长英雄
         /// </summary>
-        public List<string> SkilledHeros { get; set; } = new List<string>();
+        public List<LegendEntity> SkilledHeros { get; set; } = new List<LegendEntity>();
     }
 }

@@ -2,10 +2,11 @@ import axios from 'axios';
 import type { AxiosInstance, AxiosResponse }from 'axios';
 import {LoginUserUtils} from './userUtils'
 const proxy_path = import.meta.env.VITE_API_Proxy_PATH;
+const apiBaseURL = import.meta.env.VITE_API_BASE_URL;
 // 创建axios实例
 const http: AxiosInstance = axios.create({
   //baseURL: '/api', // 你的基础URL
-  baseURL: proxy_path,
+  baseURL: apiBaseURL+proxy_path,
   timeout: 10000, // 请求超时时间
 });
 

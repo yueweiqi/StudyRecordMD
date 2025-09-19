@@ -1,4 +1,5 @@
 ﻿using LZL.DbModel.Enums;
+using LZL.DbModel.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,6 @@ namespace LZL.DbModel.ModelDto.PlayerEntityDto
         /// <summary>
         /// 擅长英雄
         /// </summary>
-        public string? SkilledHeros { get; set; }
+        public List<LegendEntity> SkilledHeros { get; set; } = new List<LegendEntity>();
     }
 }

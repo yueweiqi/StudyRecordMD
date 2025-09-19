@@ -52,8 +52,6 @@ namespace LZL.Controllers
 
 
             var herosList = new List<string>();
-            if (!string.IsNullOrEmpty(updatePlayerEntityDto.SkilledHeros))
-                herosList = updatePlayerEntityDto.SkilledHeros.Split(",").ToList();
 
             var udpateDefinition = Builders<PlayerEntity>.Update
                 .Set(p=>p.Identity,updatePlayerEntityDto.Identity)
@@ -63,7 +61,7 @@ namespace LZL.Controllers
                 .Set(p => p.RankName, updatePlayerEntityDto.RankName)
                 .Set(p => p.RankScore, updatePlayerEntityDto.RankScore)
                 .Set(p => p.School, updatePlayerEntityDto.School)
-                .Set(p => p.SkilledHeros, herosList);
+                .Set(p => p.SkilledHeros, updatePlayerEntityDto.SkilledHeros);
             collection.UpdateOne(u=>u.Id==updatePlayerEntityDto.Id, udpateDefinition);
 
             return Ok();

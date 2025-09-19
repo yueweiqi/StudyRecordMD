@@ -38,7 +38,7 @@
           </el-row>
           <el-row class="fs-5 text-left mb-1" v-for="(item, index) in currentMatchData.bluePlayerList" :key="item.id">
             <el-col :span="11" class="col_player rounded-3" :class="{'col_player_height':item.height==1,'rounded-3':item.height==1}" >
-              <el-row class="py-3 px-1">
+              <el-row class="py-3 px-1 d-flex align-items-center">
                 <el-col :span="6">
                   {{ item.name }}
                   <el-tag v-show="item.identity>0" class="ml-2 ms-1" type="warning">{{ item.identityStr }}</el-tag>
@@ -53,7 +53,11 @@
                   {{ item.school }}
                 </el-col>
                 <el-col :span="8">
-                  {{ item.skilledHeros.join(",") }}
+                  <el-avatar
+                 class="ms-1"
+                 v-for="item2 in item.skilledHeros"
+                 :key="item2" shape="square" size="large"
+                 :src="fileBasePath+item2.avatar" />
                 </el-col>
               </el-row>
             </el-col>
@@ -64,7 +68,7 @@
             </el-col>
 
             <el-col :span="11" class=" col_player rounded-3" :class="{'col_player_height':currentMatchData.redPlayerList[index].height==1,'rounded-3':currentMatchData.redPlayerList[index].height==1}">
-              <el-row class="py-3 px-1">
+              <el-row class="py-3 px-1 d-flex align-items-center">
                 <el-col :span="6">
                   {{ currentMatchData.redPlayerList[index].name }}
                   <el-tag v-show="currentMatchData.redPlayerList[index].identity>0" class="ml-2 ms-1" type="warning">{{ currentMatchData.redPlayerList[index].identityStr }}</el-tag>
@@ -79,7 +83,11 @@
                   {{ currentMatchData.redPlayerList[index].school }}
                 </el-col>
                 <el-col :span="8">
-                  {{ currentMatchData.redPlayerList[index].skilledHeros.join(",") }}
+                  <el-avatar
+                 class="ms-1"
+                 v-for="item2 in currentMatchData.redPlayerList[index].skilledHeros"
+                 :key="item2" shape="square" size="large"
+                 :src="fileBasePath+item2.avatar" />
                 </el-col>
               </el-row>
             </el-col>

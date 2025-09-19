@@ -10,7 +10,7 @@
        <el-form-item label="英雄头像" :label-width="addForm.labelWidth">
          <el-upload
              class="upload-demo"
-             action="http://localhost:5211/Legend/AvatarPost"
+             :action="httpBasePath+ '/Legend/AvatarPost'"
              :on-success="handleSuccess"
              :on-error="handleError"
              :file-list="fileList"
@@ -85,7 +85,7 @@
  import { ElMessage } from 'element-plus'
 
  const fileBasePath = ref(import.meta.env.VITE_File_BASE_URL);
-
+ const httpBasePath = import.meta.env.VITE_API_BASE_URL+import.meta.env.VITE_API_Proxy_PATH;;
  //#region 文件上传
  const fileList=ref([]);
  const handleSuccess=(response, file, fileList)=> {

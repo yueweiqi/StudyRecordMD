@@ -36,23 +36,33 @@ namespace LZL.DbModel.ModelDto.MatchEntityDto
         public int RedScore { get; set; }
 
         public DateTime? StartTime { get; set; }
+        /// <summary>
+        /// 数据库存储时间为UTC时间,这里转换为携带当前时区增量的标准时间
+        /// </summary>
         public string? StartTimeStr
         {
             get
             {
                 if (StartTime == null)
                     return "";
-                return StartTime.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                TimeZoneInfo localZone = TimeZoneInfo.Local;
+                DateTime localTime = TimeZoneInfo.ConvertTime(StartTime.Value, localZone);
+                return localTime.ToString("yyyy-MM-dd HH:mm:ss");
             }
         }
         public DateTime? EndTime { get; set; }
+        /// <summary>
+        /// 数据库存储时间为UTC时间,这里转换为携带当前时区增量的标准时间
+        /// </summary>
         public string? EndTimeStr
         {
             get
             {
                 if (EndTime == null)
                     return "";
-                return EndTime.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                TimeZoneInfo localZone = TimeZoneInfo.Local;
+                DateTime localTime = TimeZoneInfo.ConvertTime(EndTime.Value, localZone);
+                return localTime.ToString("yyyy-MM-dd HH:mm:ss");
             }
         }
         public ProgressStateEnum State { get; set; }

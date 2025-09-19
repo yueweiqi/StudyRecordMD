@@ -64,38 +64,10 @@ namespace LZL.ProfileExtend
             CreateMap<MatchEntity, PageDataMatchEntityDto>()
                 .ForMember(dest => dest.Id, map => map.MapFrom(src => src.Id.ToString()))
                 .ForMember(dest => dest.BlueId, map => map.MapFrom(src => src.BlueId.ToString()))
-                .ForMember(dest => dest.RedId, map => map.MapFrom(src => src.RedId.ToString()))
-                .ForMember(dest => dest.StartTime, map => map.MapFrom<DateTime?>((src, dest) =>
-                {
-                    if (src.StartTime == null)
-                        return DateTime.MinValue;
-                    else
-                        return src.StartTime.Value.ToLocalTime();
-                }))
-                .ForMember(dest => dest.EndTime, map => map.MapFrom<DateTime?>((src, dest) =>
-                {
-                    if (src.EndTime == null)
-                        return DateTime.MinValue;
-                    else
-                        return src.EndTime.Value.ToLocalTime();
-                }));
+                .ForMember(dest => dest.RedId, map => map.MapFrom(src => src.RedId.ToString()));
 
 
-            CreateMap<DataMatchEntityDto, PageDataMatchEntityDto>()
-                .ForMember(dest => dest.StartTime, map => map.MapFrom<DateTime?>((src, dest) =>
-                {
-                    if (src.StartTime == null)
-                        return DateTime.MinValue;
-                    else
-                        return src.StartTime.Value.ToLocalTime();
-                }))
-                .ForMember(dest => dest.EndTime, map => map.MapFrom<DateTime?>((src, dest) =>
-                {
-                    if (src.EndTime == null)
-                        return DateTime.MinValue;
-                    else
-                        return src.EndTime.Value.ToLocalTime();
-                }));
+            CreateMap<DataMatchEntityDto, PageDataMatchEntityDto>();
             #endregion
 
             #region 英雄

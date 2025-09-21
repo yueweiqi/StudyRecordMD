@@ -2,19 +2,19 @@
   <div class="h-100 w-100 bg_div position-relative">
     <div class="w-100 d-flex justify-content-center ">
       <el-row class="w-100 text-light" style="padding-top: 5rem !important">
-        <el-col :span="1"></el-col>
-        <el-col :span="22">
+        <el-col :span="2"></el-col>
+        <el-col :span="20">
           <el-row style="padding-top: 4rem !important">
               <el-col :span="24" class="text-center fs-2">
                   <span>{{ currentMatchData.currentMatch.name }}</span>
               </el-col>
           </el-row>
-          <el-row style="padding-top: 10rem !important">
+          <el-row style="padding-top: 4rem !important">
               <el-col :span="3"></el-col>
-              <el-col :span="2" >
-                 <img class="avatar-img" :src="fileBasePath+currentMatchData.currentMatch.blueTeam[0].avatar"></img>
+              <el-col :span="1" v-show="false">
+                <el-avatar shape="square" size="large" :src="fileBasePath+currentMatchData.currentMatch.blueTeam[0].avatar" />
               </el-col>
-              <el-col :span="5" class="text-left fs-1 ps-3 d-flex align-items-center">
+              <el-col :span="6" class="text-left fs-1 ps-3">
                   <span>{{ currentMatchData.currentMatch.blueTeam[0].name }}</span>
 
               </el-col>
@@ -26,30 +26,30 @@
                 </div>
               </el-col>
               <el-col :span="3"></el-col>
-              <el-col :span="2" >
-                <img class="avatar-img" :src="fileBasePath+currentMatchData.currentMatch.redTeam[0].avatar"></img>
+              <el-col :span="1" v-show="false">
+                <el-avatar shape="square" size="large" :src="fileBasePath+currentMatchData.currentMatch.redTeam[0].avatar" />
               </el-col>
-              <el-col :span="5" class="text-left fs-1 ps-3 d-flex align-items-center">
+              <el-col :span="6" class="text-left fs-1 ps-3">
                   <span>{{ currentMatchData.currentMatch.redTeam[0].name }}</span>
               </el-col>
           </el-row>
-          <el-row style="padding-top: 5rem !important">
+          <el-row style="padding-top: 3rem !important">
 
           </el-row>
-          <el-row class="fs-5 text-left mb-3" v-for="(item, index) in currentMatchData.bluePlayerList" :key="item.id">
+          <el-row class="fs-5 text-left mb-1" v-for="(item, index) in currentMatchData.bluePlayerList" :key="item.id">
             <el-col :span="11" class="col_player rounded-3" :class="{'col_player_height':item.height==1,'rounded-3':item.height==1}" >
               <el-row class="py-3 px-1 d-flex align-items-center">
-                <el-col :span="6" class="ps-3">
-                  {{ item.name }}
-                  <el-tag v-show="item.identity>0" class="ml-2 ms-1" type="warning">{{ item.identityStr }}</el-tag>
-                </el-col>
                 <el-col :span="6">
-                  {{ item.rankNameStr }}
+                  {{ item.name }}
+                  <el-tag v-show="item.identity>0&&false" class="ml-2 ms-1" type="warning">{{ item.identityStr }}</el-tag>
                 </el-col>
                 <el-col :span="4">
+                  {{ item.rankNameStr }}
+                </el-col>
+                <el-col :span="2">
                   {{ item.rankScore }}
                 </el-col>
-                <el-col :span="8">
+                <el-col :span="4">
                   {{ item.school }}
                 </el-col>
                 <el-col :span="8" v-show="false">
@@ -69,17 +69,17 @@
 
             <el-col :span="11" class=" col_player rounded-3" :class="{'col_player_height':currentMatchData.redPlayerList[index].height==1,'rounded-3':currentMatchData.redPlayerList[index].height==1}">
               <el-row class="py-3 px-1 d-flex align-items-center">
-                <el-col :span="6" class="ps-3">
-                  {{ currentMatchData.redPlayerList[index].name }}
-                  <el-tag v-show="currentMatchData.redPlayerList[index].identity>0" class="ml-2 ms-1" type="warning">{{ currentMatchData.redPlayerList[index].identityStr }}</el-tag>
-                </el-col>
                 <el-col :span="6">
-                  {{ currentMatchData.redPlayerList[index].rankNameStr }}
+                  {{ currentMatchData.redPlayerList[index].name }}
+                  <el-tag v-show="currentMatchData.redPlayerList[index].identity>0&&false" class="ml-2 ms-1" type="warning">{{ currentMatchData.redPlayerList[index].identityStr }}</el-tag>
                 </el-col>
                 <el-col :span="4">
+                  {{ currentMatchData.redPlayerList[index].rankNameStr }}
+                </el-col>
+                <el-col :span="2">
                   {{ currentMatchData.redPlayerList[index].rankScore }}
                 </el-col>
-                <el-col :span="8">
+                <el-col :span="4">
                   {{ currentMatchData.redPlayerList[index].school }}
                 </el-col>
                 <el-col :span="8" v-show="false">
@@ -95,7 +95,7 @@
 
           </el-row>
         </el-col>
-        <el-col :span="1"></el-col>
+        <el-col :span="2"></el-col>
       </el-row>
     </div>
     <div class="position-absolute" style="top: 3rem;left: 3rem;">
@@ -103,7 +103,7 @@
         title="距离比赛开始"
         prefix=""
         suffix=""
-        finishText="比赛马上开始"
+        finishText="活动已结束"
         :duration="timeDuration"
         format="HH:mm:ss"
         :autoStart="true"
@@ -114,7 +114,7 @@
       <div class="div_score">
 
       </div>
-      <div class="text-light div_score-title-postion" style="">
+      <div class="text-light" style="position: relative;top: -5rem;">
         <div class="div_score-title text-center">
           <el-row>
             <el-col :span="10">
@@ -221,7 +221,7 @@ onMounted(()=>{
   border-radius: 8px;
   background-color:#9e9e9e57 !important;
   margin: 0 auto;
-  height:7rem;
+  height:6rem;
   width:10rem;
 }
 .div_score-title {
@@ -234,13 +234,5 @@ onMounted(()=>{
   font-size: 2rem;
   font-family: monospace;
   margin: 0.1rem 0;
-}
-.div_score-title-postion{
-  position: relative;top: -6rem;
-}
-.avatar-img{
-  height: 8rem;
-  border-radius: 2rem;
-  width: 90%;
 }
 </style>

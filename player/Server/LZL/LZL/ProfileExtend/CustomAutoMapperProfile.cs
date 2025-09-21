@@ -5,6 +5,7 @@ using LZL.DbModel.ModelDto.LegendEntityDto;
 using LZL.DbModel.ModelDto.MatchEntityDto;
 using LZL.DbModel.ModelDto.PlayerEntityDto;
 using LZL.DbModel.ModelDto.TeamEntityDto;
+using LZL.DbModel.ModelDto.VideoEntityDto;
 using MongoDB.Bson;
 
 namespace LZL.ProfileExtend
@@ -76,6 +77,23 @@ namespace LZL.ProfileExtend
             CreateMap<LegendEntity, DataLegendEntityDto>();
 
             CreateMap<LegendEntity, PageDataLegendEntityDto>();
+            #endregion
+
+            #region 视频
+            CreateMap<AddVideoEntityDto, VideoEntity>()
+                .ForMember(dest => dest.StartTime, map => map.MapFrom<DateTime?>((src, dest) =>
+                {
+                    if (src.StartTime == null)
+                        return DateTime.MinValue;
+                    else
+                    {
+                        DateTime dateTime = DateTime.MinValue;
+                        DateTime.TryParse(src.StartTime, out dateTime);
+                        return dateTime;
+                    }
+
+                }));
+            CreateMap<VideoEntity, PageDataVideoEntityDto>();
             #endregion
         }
     }

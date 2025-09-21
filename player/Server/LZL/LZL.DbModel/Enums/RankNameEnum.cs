@@ -23,9 +23,31 @@ namespace LZL.DbModel.Enums
         ZuanTwo = 5,
         [Description("钻石三")]
         ZuanThree = 6,
-        //[Description("钻石四")]
-        //ZuanFour = 7,
-        //[Description("钻石五")]
-        //ZuanFive = 8,
+        [Description("钻石四")]
+        ZuanFour = 7,
+        [Description("翡翠一")]
+        FeiCuiOne = 8,
+        [Description("翡翠二")]
+        FeiCuiTwo = 9,
+        [Description("翡翠三")]
+        FeiCuiThree = 10,
+        [Description("翡翠四")]
+        FeiCuiFour = 11,
+        [Description("铂金一")]
+         BoJinOne= 12,
+        [Description("铂金二")]
+        BoJinTwo = 13,
+        [Description("铂金三")]
+        BoJinThree = 14,
+        [Description("铂金四")]
+        BoJinFour = 15,
+        [Description("黄金一")]
+        HuangJinOne = 16,
+        [Description("黄金二")]
+        HuangJinTwo = 17,
+        [Description("黄金三")]
+        HuangJinThree = 18,
+        [Description("黄金四")]
+        HuangJinFour = 19,
     }
 }

@@ -3,7 +3,7 @@
   <div class="countdown-container">
 
   </div>
-  <div class="text-light" style="position: relative;top: -5rem;">
+  <div class="text-light" style="position: relative;top: -6rem;">
     <div v-if="title" class="countdown-title text-center" :style="titleStyle">{{ title }}</div>
     <div class="countdown-display text-center">
       <span v-if="prefix" class="countdown-prefix">{{ prefix }}</span>
@@ -121,18 +121,18 @@ onUnmounted(() => {
 .countdown-container {
   font-family: Arial, sans-serif;
   text-align: center;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 2rem;
+  border-radius: 0.8rem;
   background-color:#9e9e9e57 !important;
   margin: 0 auto;
-  height:6rem;
-  width:10rem;
+  height:7rem;
+  width:12rem;
 }
 
 .countdown-title {
   font-size: 1.2rem;
   margin-bottom: 0.1rem;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .countdown-display {
@@ -151,10 +151,10 @@ onUnmounted(() => {
 }
 
 button {
-  padding: 8px 16px;
-  margin: 0 5px;
+  padding: 0.7rem 2rem;
+  margin: 0 0.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   background-color: #42b983;
   color: white;
   cursor: pointer;
@@ -171,7 +171,7 @@ button:disabled {
 }
 
 .countdown-finish {
-  margin-top: 15px;
+  margin-top: 1rem;
   font-weight: bold;
   color: #e74c3c;
 }

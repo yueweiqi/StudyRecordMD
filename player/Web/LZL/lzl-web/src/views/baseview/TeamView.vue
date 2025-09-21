@@ -11,7 +11,7 @@
         <div class="flex-column"><el-avatar shape="square" size="large" :src="fileBasePath+addFormData.avatar" />
         <el-upload
             class="upload-demo"
-            :action="httpBasePath+ '/Team/AvatarPost'"
+            :action="httpBasePath+ 'Team/AvatarPost'"
             :on-success="handleSuccess"
             :on-error="handleError"
             :file-list="fileList"

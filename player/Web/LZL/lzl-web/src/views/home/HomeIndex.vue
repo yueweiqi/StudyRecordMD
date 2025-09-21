@@ -25,12 +25,19 @@
           <el-icon><icon-menu /></el-icon>
           <span>英雄管理</span>
         </el-menu-item>
-        <el-menu-item index="5" @click="menuItemOutClick('/CurrentMatchView')">
+        <el-menu-item index="5" @click="menuItemClick(VideoView)">
+          <el-icon><icon-menu /></el-icon>
+          <span>视频管理</span>
+        </el-menu-item>
+        <el-menu-item index="6" @click="menuItemOutClick('/CurrentMatchView')">
           <el-icon><icon-menu /></el-icon>
           <span>选手信息展示</span>
         </el-menu-item>
-
-        <el-menu-item index="6" v-show="false">
+        <el-menu-item index="7" @click="menuItemOutClick('/CurrentVideoView')">
+          <el-icon><icon-menu /></el-icon>
+          <span>视频展示</span>
+        </el-menu-item>
+        <el-menu-item index="8" v-show="false">
           <el-icon><setting /></el-icon>
           <span>设置</span>
         </el-menu-item>
@@ -54,6 +61,8 @@ import PlayerView from '@/views/baseview/PlayerView.vue'
 import TeamView from '@/views/baseview/TeamView.vue'
 import CurrentMatchView from '@/views/baseview/MatchView.vue'
 import LegendView from '@/views/baseview/LegendView.vue'
+import VideoView from '@/views/baseview/VideoView.vue'
+import CurrentVideoView from '@/views/showview/CurrentVideoView.vue'
 
 const userCode=userCodeStore();
 const router=useRouter()

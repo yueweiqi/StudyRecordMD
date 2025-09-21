@@ -4,6 +4,7 @@ import home from './views/home/HomeIndex.vue'
 import login from './views/login/LoginIndex.vue'
 import CTeamInfo from "@/views/current/TeamInfo.vue"
 import CurrentMatchView from '@/views/showview/CurrentMatchView.vue'
+import CurrentVideoView from '@/views/showview/CurrentVideoView.vue'
 //第二部：创建路由器
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),//路由器的工作模式
@@ -27,6 +28,11 @@ const router = createRouter({
         name:"CurrentMatchView",
         path:'/CurrentMatchView',
         component: CurrentMatchView
+      },
+      {
+        name:"CurrentVideoView",
+        path:'/CurrentVideoView',
+        component: CurrentVideoView
       }
     ], // 配置路由规则的数组
   })

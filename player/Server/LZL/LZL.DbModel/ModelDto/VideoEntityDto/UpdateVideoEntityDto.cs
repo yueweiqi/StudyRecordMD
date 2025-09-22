@@ -9,7 +9,7 @@ namespace LZL.DbModel.ModelDto.VideoEntityDto
     public record UpdateVideoEntityDto
     {
         public string Id { get; set; }
-        public string? StartTime { get; set; }
+        public string? StartTimeStr { get; set; }
 
         public string? VideoUrl { get; set; }
     }

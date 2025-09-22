@@ -5,14 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LZL.DbModel.ModelDto.VideoEntityDto
+namespace LZL.DbModel.ModelDto.MatchPlayerCommentEntityDto
 {
-    public record AddVideoEntityDto
+    public record UpdateMatchPlayerCommentStateDto
     {
-        public string? StartTimeStr { get; set; }
-
-        public string? VideoUrl { get; set; }
-
+        public string? Id { get; set; }
+        public string? MatchId { get; set; }
         public ProgressStateEnum State { get; set; }
     }
 }

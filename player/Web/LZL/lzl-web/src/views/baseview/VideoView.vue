@@ -1,11 +1,11 @@
 <template>
    <el-dialog v-model="addForm.visible" :title="addForm.aOrUText">
      <el-form :model="addForm">
-       
-      
+
+
        <el-form-item label="比赛时间" :label-width="addForm.labelWidth">
       <el-date-picker
-        v-model="addFormData.startTime"
+        v-model="addFormData.startTimeStr"
         type="datetime"
         placeholder="Select date and time"
         format="YYYY/MM/DD HH:mm:ss"
@@ -67,7 +67,7 @@
               </template>
               </el-table-column>
 
-             
+
              <el-table-column prop="startTimeStr" label="开始时间" />
              <el-table-column prop="videoUrl" label="视频路径" />
              <el-table-column fixed="right" label="操作" width="250">
@@ -143,12 +143,6 @@ const beforeUpload=(file)=> {
  const onSubmit=()=>{
    pageDataChange();
  }
- const teamList=reactive([
-   {
-     id: 0,
-     name:'',
-   }
- ]);
 
  //#region 删除
  const onDeleteClick=(row)=>{
@@ -172,7 +166,7 @@ const beforeUpload=(file)=> {
    addFormData.id=row.id;
    addFormData.videoUrl=row.videoUrl;
    addFormData.startTime=row.startTime;
-
+   addFormData.startTimeStr=row.startTimeStr;
 
    addForm.addOrUpdate=2;
    addForm.aOrUText="修改";
@@ -222,6 +216,7 @@ const beforeUpload=(file)=> {
  const addFormData=reactive({
    id:"",
    startTime:"",
+   startTimeStr:"",
    videoUrl:""
  });
  //#endregion
@@ -231,6 +226,7 @@ const beforeUpload=(file)=> {
  interface Player {
    id:string;
    startTime: string;
+   startTimeStr: string;
    videoUrl:string;
    state:0;
  }

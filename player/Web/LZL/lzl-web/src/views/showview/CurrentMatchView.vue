@@ -4,7 +4,7 @@
       <el-row class="w-100 text-light" style="padding-top: 5rem !important">
         <el-col :span="1"></el-col>
         <el-col :span="22">
-          <el-row style="padding-top: 4rem !important">
+          <el-row style="padding-top: 0.1rem !important">
               <el-col :span="24" class="text-center fs-2">
                   <span>{{ currentMatchData.currentMatch.name }}</span>
               </el-col>

@@ -25,8 +25,8 @@ namespace LZL.DbModel.ModelDto.MatchEntityDto
         public string RedId { get; set; }
         public int RedScore { get; set; }
 
-        public string? StartTime { get; set; }
-        public string? EndTime { get; set; }
+        public string? StartTimeStr { get; set; }
+        public string? EndTimeStr { get; set; }
         public ProgressStateEnum State { get; set; }
     }
 }

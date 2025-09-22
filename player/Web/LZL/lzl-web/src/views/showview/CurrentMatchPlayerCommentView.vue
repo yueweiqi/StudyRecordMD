@@ -14,17 +14,37 @@
         <el-col :span="2"></el-col>
       </el-row>
       <el-row class="w-100 d-flex justify-content-center video-div-base" style="padding-top: 3rem !important">
-        <el-col class="h-100" :span="24">
-                <video loop
-                autoplay
-                class="h-100 w-100"
-                ref="videoPlayer"
-                :src="videoUrl"
-                controls="false"
-                preload="metadata">
-                您的浏览器不支持HTML5视频播放
-            </video>
+        <el-col class="h-100" :span="4"></el-col>
+        <el-col class="h-100" :span="16">
+          <el-carousel :interval="4000" :autoplay="false" indicator-position='none' type="card" height="70vh">
+            <el-carousel-item class="rounded-5" v-for="item in currentMatchPlayerData.playerList" :key="item">
+              <div class="h-100 rounded-5">
+                <div class="h-100 div-carousel-item rounded-5">
+                  <el-row class="fs-4 py-3 px-2 d-flex align-items-center" style="background-color: #ffffffb0;color:black">
+                    <el-col :span="4" class="text-end">
+                        <img class="avatar-img" :src="fileBasePath+item.teamAvatar"></img>
+                    </el-col>
+                    <el-col :span="4" class="text-start">
+                        {{ item.teamName }}
+                    </el-col>
+                    <el-col :span="8">
+                        {{ item.name }}
+                    </el-col>
+                    <el-col :span="8">
+                        {{ item.school }}
+                    </el-col>
+                  </el-row>
+                  <div style="height:80%;align-items: center;text-align: center;">
+                    {{ item.teamName+item.name }}
+                  </div>
+                </div>
+
+              </div>
+
+            </el-carousel-item>
+          </el-carousel>
         </el-col>
+        <el-col class="h-100" :span="4"></el-col>
       </el-row>
     </div>
     <div class="position-absolute" style="top: 3rem;left: 3rem;">
@@ -98,13 +118,6 @@ const timeDuration = computed(() => {
 })
 
 const fileBasePath = ref(import.meta.env.VITE_File_BASE_URL);
-const videoUrl= computed(() => {
-    const dddd=fileBasePath.value+currentVideoData.videoUrl;
-    console.log(dddd);
-    return dddd;
-})
-
-
 
 const currentMatchData=reactive({
   currentMatch:{
@@ -122,11 +135,22 @@ const currentMatchData=reactive({
   bluePlayerList:[],
   redPlayerList:[]
 });
-const currentVideoData=reactive({
-    id:"",
-    startTime:"",
-    videoUrl:"",
-    state:0
+const currentMatchPlayerData=reactive({
+  id:"",
+  name:"",
+  playerList:[
+    {
+      id:"",
+      name:"",
+      position:1,
+      positionStr:"",
+      rankName:1,
+      school:"",
+      commentInfo:"",
+      teamName:"",
+      teamAvatar:""
+    }
+   ]
 });
 onMounted(()=>{
   http.get("/Match/CurrentTeamInfo")
@@ -137,19 +161,32 @@ onMounted(()=>{
       currentMatchData.bluePlayerList=resData.bluePlayerList;
       currentMatchData.redPlayerList=resData.redPlayerList;
    });
-   http.get("/Video/CurrentTeamInfo")
+   http.get("/MatchPlayerComment/CurrentMatchPlayerCommentInfo")
   .then((res)=>{
       console.log(res.data.data);
       const resData=res.data.data;
-      currentVideoData.id=resData.id;
-      currentVideoData.startTime=resData.startTime;
-      currentVideoData.videoUrl=resData.videoUrl;
-      currentVideoData.state=resData.state;
+      currentMatchPlayerData.id=resData.id;
+      currentMatchPlayerData.name=resData.name;
+      currentMatchPlayerData.playerList=resData.playerList;
    });
 });
 </script>
 
 <style scoped>
+.avatar-img{
+  height: 5rem;
+  border-radius: 2rem;
+  width: 90%;
+}
+.col_player{
+  /*background-color: #9e9e9e57;*/
+  /* background-color: #f0f8ff1c; */
+  background: linear-gradient(to right, #ffffff18,#ffffff00 );
+}
+.div-carousel-item{
+  background-color: rgba(255, 255, 255, 0.171);
+  color:white;
+}
 /* //全屏按钮 */
 video::-webkit-media-controls-fullscreen-button {
     display: none;

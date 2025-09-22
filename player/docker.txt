@@ -7,7 +7,7 @@ docker push 42.193.119.71:5000/lzl:1.0
 docker pull 42.193.119.71:5000/lzl:1.0
 
 -- 命令顺序很重要！！！！挂载目录要在镜像前面！！！！！！还要设置时区！！！！
-docker run -d --name lzl -p 8010:8080 -v /home/app/lzl/Resource/Legend/Avatar:/app/Resource/Legend/Avatar -v /home/app/lzl/Resource/Team/Avatar:/app/Resource/Team/Avatar  -v /home/app/lzl/appsettings.json:/app/appsettings.json -e TZ=Asia/Shanghai 42.193.119.71:5000/lzl:1.0
+docker run -d --name lzl -p 8010:8080 -v /home/app/lzl/Resource/Legend/Avatar:/app/Resource/Legend/Avatar -v /home/app/lzl/Resource/Video/Video:/app/Resource/Video/Video -v /home/app/lzl/Resource/Team/Avatar:/app/Resource/Team/Avatar  -v /home/app/lzl/appsettings.json:/app/appsettings.json -e TZ=Asia/Shanghai 42.193.119.71:5000/lzl:1.0
 
 -- 删除重复版本镜像  tag为[none]
  docker rmi $(docker images -f "dangling=true" -q)

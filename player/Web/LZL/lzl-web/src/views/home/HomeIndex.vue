@@ -9,38 +9,63 @@
         @close="handleClose"
         style="border-right: 0px;"
       >
-        <el-menu-item index="1" @click="menuItemClick(PlayerView)">
+      <el-sub-menu index="1">
+        <template #title>
+            <el-icon><icon-menu /></el-icon>
+            <span>基础管理</span>
+          </template>
+        <el-menu-item index="1-1" @click="menuItemClick(PlayerView)">
           <el-icon><icon-menu /></el-icon>
           <span>选手管理</span>
         </el-menu-item>
-        <el-menu-item index="2" @click="menuItemClick(TeamView)">
+        <el-menu-item index="1-2" @click="menuItemClick(TeamView)">
           <el-icon><icon-menu /></el-icon>
           <span>队伍管理</span>
         </el-menu-item>
-        <el-menu-item index="3" @click="menuItemClick(CurrentMatchView)">
-          <el-icon><icon-menu /></el-icon>
-          <span>比赛管理</span>
-        </el-menu-item>
-        <el-menu-item index="4" @click="menuItemClick(LegendView)">
+        <el-menu-item index="1-3" @click="menuItemClick(LegendView)">
           <el-icon><icon-menu /></el-icon>
           <span>英雄管理</span>
         </el-menu-item>
-        <el-menu-item index="5" @click="menuItemClick(VideoView)">
+      </el-sub-menu>
+      <el-sub-menu index="2" >
+        <template #title>
+            <el-icon><icon-menu /></el-icon>
+            <span>比赛管理</span>
+          </template>
+        <el-menu-item index="2-1" @click="menuItemClick(CurrentMatchView)">
+          <el-icon><icon-menu /></el-icon>
+          <span>比赛管理</span>
+        </el-menu-item>
+        <el-menu-item index="2-2" @click="menuItemClick(MatchPlayerCommentView)">
+          <el-icon><icon-menu /></el-icon>
+          <span>选手评论</span>
+        </el-menu-item>
+        <el-menu-item index="2-3" @click="menuItemClick(VideoView)">
           <el-icon><icon-menu /></el-icon>
           <span>视频管理</span>
         </el-menu-item>
-        <el-menu-item index="6" @click="menuItemOutClick('/CurrentMatchView')">
-          <el-icon><icon-menu /></el-icon>
-          <span>选手信息展示</span>
-        </el-menu-item>
-        <el-menu-item index="7" @click="menuItemOutClick('/CurrentVideoView')">
-          <el-icon><icon-menu /></el-icon>
-          <span>视频展示</span>
-        </el-menu-item>
-        <el-menu-item index="8" v-show="false">
-          <el-icon><setting /></el-icon>
-          <span>设置</span>
-        </el-menu-item>
+      </el-sub-menu>
+
+        <el-sub-menu index="3">
+          <template #title>
+            <el-icon><icon-menu /></el-icon>
+            <span>直播展示</span>
+          </template>
+          <el-menu-item-group title="直播展示">
+            <el-menu-item index="3-1" @click="menuItemOutClick('/CurrentMatchView')">
+              <el-icon><icon-menu /></el-icon>
+              <span>选手信息展示</span>
+            </el-menu-item>
+            <el-menu-item index="3-2" @click="menuItemOutClick('/CurrentMatchPlayerCommentView')">
+              <el-icon><icon-menu /></el-icon>
+              <span>选手评论展示</span>
+            </el-menu-item>
+            <el-menu-item index="3-2" @click="menuItemOutClick('/CurrentVideoView')">
+              <el-icon><icon-menu /></el-icon>
+              <span>视频展示</span>
+            </el-menu-item>
+          </el-menu-item-group>
+        </el-sub-menu>
       </el-menu>
     </el-col>
     <el-col :span="20">
@@ -62,7 +87,7 @@ import TeamView from '@/views/baseview/TeamView.vue'
 import CurrentMatchView from '@/views/baseview/MatchView.vue'
 import LegendView from '@/views/baseview/LegendView.vue'
 import VideoView from '@/views/baseview/VideoView.vue'
-import CurrentVideoView from '@/views/showview/CurrentVideoView.vue'
+import MatchPlayerCommentView from '@/views/baseview/MatchPlayerCommentView.vue'
 
 const userCode=userCodeStore();
 const router=useRouter()

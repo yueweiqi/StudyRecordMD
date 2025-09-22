@@ -2,7 +2,7 @@
    <el-dialog v-model="addForm.visible" :title="addForm.aOrUText">
      <el-form :model="addForm">
        <el-form-item label="比赛名称" :label-width="addForm.labelWidth">
-         <el-input v-model="addFormData.name" autocomplete="off" />
+         <el-input v-model="addFormData.name" autocomplete="off" :disabled="addForm.addOrUpdate==2" />
        </el-form-item>
        <el-form-item label="蓝方队伍" :label-width="addForm.labelWidth">
        <el-select
@@ -10,6 +10,7 @@
                  placeholder="查询所有"
                  clearable
                  filterable
+                 :disabled="addForm.addOrUpdate==2"
                >
                  <el-option v-for="item in teamList"
                    :key="item.id"
@@ -29,6 +30,7 @@
                  placeholder="查询所有"
                  clearable
                  filterable
+                 :disabled="addForm.addOrUpdate==2"
                >
                  <el-option v-for="item in teamList"
                    :key="item.id"
@@ -44,7 +46,7 @@
        <el-form-item label="比赛时间" :label-width="addForm.labelWidth">
       <el-col :span="6">
         <el-date-picker
-        v-model="addFormData.startTime"
+        v-model="addFormData.startTimeStr"
         type="datetime"
         placeholder="Select date and time"
         format="YYYY/MM/DD HH:mm:ss"
@@ -56,7 +58,7 @@
       </el-col>
       <el-col :span="11">
         <el-date-picker
-        v-model="addFormData.endTime"
+        v-model="addFormData.endTimeStr"
         type="datetime"
         placeholder="Select date and time"
         format="YYYY/MM/DD HH:mm:ss"
@@ -211,7 +213,9 @@
    addFormData.redId=row.redId;
    addFormData.redScore=row.redScore;
    addFormData.startTime=row.startTime;
+   addFormData.startTimeStr=row.startTimeStr;
    addFormData.endTime=row.endTime;
+   addFormData.endTimeStr=row.endTimeStr;
 
    addForm.addOrUpdate=2;
    addForm.aOrUText="修改";
@@ -266,7 +270,9 @@
    redId:"",
    redScore:0,
    startTime:'',
-   endTime:''
+   startTimeStr:'',
+   endTime:'',
+   endTimeStr:'',
  });
  //#endregion
 

@@ -24,6 +24,7 @@ namespace LZL.Controllers
         readonly string _PlayerDbName = "player";
         readonly string _MatchName = "match";
         readonly string _ProgressName = "progress";
+        readonly string _MatchPlayerCommentDbName = "match_player_comment";
         #endregion
 
         #region 构造函数
@@ -98,12 +99,6 @@ namespace LZL.Controllers
                 dataCurrentMatch.RedPlayerList = redList;
                 #endregion
             }
-
-
-
-
-
-
             return Json(new { Data= dataCurrentMatch});
         }
 
@@ -135,10 +130,10 @@ namespace LZL.Controllers
 
             collection.UpdateOne(w => w.Id == updateCurrentMatchPlayerDto.Id, currentDefinition);
 
-            if (!string.IsNullOrEmpty(updateCurrentMatchPlayerDto.StartTime)) 
+            if (!string.IsNullOrEmpty(updateCurrentMatchPlayerDto.StartTimeStr)) 
             {
                 DateTime dateTime = DateTime.Now;
-                if (DateTime.TryParse(updateCurrentMatchPlayerDto.StartTime, out dateTime)) 
+                if (DateTime.TryParse(updateCurrentMatchPlayerDto.StartTimeStr, out dateTime)) 
                 {
                     var currentDefinition2= Builders<MatchEntity>.Update
                             .Set(p => p.StartTime, dateTime);
@@ -147,10 +142,10 @@ namespace LZL.Controllers
                 }
                
             }
-            if (!string.IsNullOrEmpty(updateCurrentMatchPlayerDto.EndTime))
+            if (!string.IsNullOrEmpty(updateCurrentMatchPlayerDto.EndTimeStr))
             {
                 DateTime dateTime = DateTime.Now;
-                if (DateTime.TryParse(updateCurrentMatchPlayerDto.EndTime, out dateTime))
+                if (DateTime.TryParse(updateCurrentMatchPlayerDto.EndTimeStr, out dateTime))
                 {
                     var currentDefinition2 = Builders<MatchEntity>.Update
                             .Set(p => p.EndTime, dateTime);
@@ -167,21 +162,55 @@ namespace LZL.Controllers
         {
             var collection = _Database.GetCollection<MatchEntity>(_MatchName);
 
+            var mPlayerCollection = _Database.GetCollection<MatchPlayerCommentEntity>(_MatchPlayerCommentDbName);
+
             if (updateMatchProgressStateDto.State == ProgressStateEnum.MatchProgress)
             {
-                var updateDefinition = Builders<MatchEntity>.Update
-                .Set(s => s.State, ProgressStateEnum.None);
-                collection.UpdateMany(f => 1 == 1, updateDefinition);
+                #region 比赛修改
+                {
+                    var updateDefinition = Builders<MatchEntity>.Update
+                  .Set(s => s.State, ProgressStateEnum.None);
+                    collection.UpdateMany(f => 1 == 1, updateDefinition);
 
-                var updateDefinition2 = Builders<MatchEntity>.Update
-                .Set(s => s.State, ProgressStateEnum.MatchProgress);
-                collection.UpdateOne(f => f.Id==updateMatchProgressStateDto.Id, updateDefinition2);
+                    var updateDefinition2 = Builders<MatchEntity>.Update
+                    .Set(s => s.State, ProgressStateEnum.MatchProgress);
+                    collection.UpdateOne(f => f.Id == updateMatchProgressStateDto.Id, updateDefinition2);
+
+                }
+
+                #endregion
+
+                #region 选手评论修改
+                {
+                    var updateDefinition = Builders<MatchPlayerCommentEntity>.Update
+                   .Set(s => s.Match.State, ProgressStateEnum.None);
+                    mPlayerCollection.UpdateMany(f => 1 == 1, updateDefinition);
+
+                    var updateDefinition2 = Builders<MatchPlayerCommentEntity>.Update
+                    .Set(s => s.Match.State, ProgressStateEnum.MatchProgress);
+                    mPlayerCollection.UpdateMany(f => f.Match.Id == updateMatchProgressStateDto.Id, updateDefinition2);
+
+                }
+               
+                #endregion
             }
             else if(updateMatchProgressStateDto.State == ProgressStateEnum.None)
             {
-                var updateDefinition = Builders<MatchEntity>.Update
-               .Set(s => s.State, ProgressStateEnum.None);
-                collection.UpdateOne(f => f.Id == updateMatchProgressStateDto.Id, updateDefinition);
+                #region 比赛修改
+                {
+                    var updateDefinition = Builders<MatchEntity>.Update
+                    .Set(s => s.State, ProgressStateEnum.None);
+                    collection.UpdateOne(f => f.Id == updateMatchProgressStateDto.Id, updateDefinition);
+                }
+                #endregion
+
+                #region 选手评论修改
+                {
+                    var updateDefinition = Builders<MatchPlayerCommentEntity>.Update
+                    .Set(s => s.Match.State, ProgressStateEnum.None);
+                    mPlayerCollection.UpdateMany(f => f.Match.Id == updateMatchProgressStateDto.Id, updateDefinition);
+                }
+                #endregion
             }
             return Ok();
         }
@@ -258,6 +287,83 @@ namespace LZL.Controllers
             pageData.TotalCount = (int)pageCount;
             pageData.Items = mapList;
             return Json(new { Data = pageData });
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            #region 当前比赛队伍
+            var cMCollection = _Database.GetCollection<DataMatchEntityDto>(_MatchName);
+
+            var teamCollection = _Database.GetCollection<TeamEntity>(_TeamDbName);
+            var playerCollection = _Database.GetCollection<DataPlayerEntityDto>(_PlayerDbName);
+
+            List<DataProgressEntityDto> dataCurrentMatchList = new();
+
+            #endregion
+
+            var resultAggregate = cMCollection
+               .Aggregate()
+               //.Match(Builders<DataMatchEntityDto>.Filter.Eq(e => e.State, ProgressStateEnum.MatchProgress))
+               .SortByDescending(o => o.StartTime)
+               .Lookup(teamCollection, u => u.BlueId, t => t.Id, (DataMatchEntityDto m) => m.BlueTeam)
+               .Lookup(teamCollection, u => u.RedId, t => t.Id, (DataMatchEntityDto m) => m.RedTeam)
+               .ToList();
+
+            foreach (var item in resultAggregate) 
+            {
+                DataProgressEntityDto dataCurrentMatch = new DataProgressEntityDto();
+                dataCurrentMatch.CurrentMatch = item;
+                if (item != null)
+                {
+                    #region 蓝队
+                    var blueList = playerCollection.Find(Builders<DataPlayerEntityDto>.Filter.And(
+                            Builders<DataPlayerEntityDto>.Filter.Eq(e => e.TeamId, item.BlueTeam[0].Id),
+                            Builders<DataPlayerEntityDto>.Filter.Lte(e => e.Position, PositionEnum.SUP)
+                        ))
+                        .SortBy(s => s.Position)
+                        .ToList();
+
+                    var blueHeightList = blueList
+                        .Select(s => new { s.Id, s.RankScore })
+                        .OrderByDescending(s => s.RankScore)
+                        .ToList();
+                    for (int i = 0; i < blueHeightList.Count; i++)
+                    {
+                        blueList.FirstOrDefault(f => f.Id == blueHeightList[i].Id).Height = (i + 1);
+                    }
+
+                    dataCurrentMatch.BluePlayerList = blueList;
+                    #endregion
+
+                    #region 红队
+                    var redList = playerCollection.Find(Builders<DataPlayerEntityDto>.Filter.And(
+                            Builders<DataPlayerEntityDto>.Filter.Eq(e => e.TeamId, item.RedTeam[0].Id),
+                            Builders<DataPlayerEntityDto>.Filter.Lte(e => e.Position, PositionEnum.SUP)
+                        ))
+                        .SortBy(s => s.Position)
+                        .ToList();
+
+                    var redHeightList = redList
+                        .Select(s => new { s.Id, s.RankScore })
+                        .OrderByDescending(s => s.RankScore)
+                        .ToList();
+                    for (int i = 0; i < redHeightList.Count; i++)
+                    {
+                        redList.FirstOrDefault(f => f.Id == redHeightList[i].Id).Height = (i + 1);
+                    }
+
+
+                    dataCurrentMatch.RedPlayerList = redList;
+                    #endregion
+                }
+                dataCurrentMatchList.Add(dataCurrentMatch);
+            }
+
+
+           
+            return Json(new { Data = dataCurrentMatchList });
+
         }
         #endregion
     }

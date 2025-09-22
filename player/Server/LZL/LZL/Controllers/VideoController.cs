@@ -51,10 +51,10 @@ namespace LZL.Controllers
                 .Set(p => p.VideoUrl, updateVideoEntityDto.VideoUrl);
             collection.UpdateOne(u => u.Id == updateVideoEntityDto.Id, udpateDefinition);
 
-            if (!string.IsNullOrEmpty(updateVideoEntityDto.StartTime))
+            if (!string.IsNullOrEmpty(updateVideoEntityDto.StartTimeStr))
             {
                 DateTime dateTime = DateTime.Now;
-                if (DateTime.TryParse(updateVideoEntityDto.StartTime, out dateTime))
+                if (DateTime.TryParse(updateVideoEntityDto.StartTimeStr, out dateTime))
                 {
                     var currentDefinition2 = Builders<VideoEntity>.Update
                             .Set(p => p.StartTime, dateTime);

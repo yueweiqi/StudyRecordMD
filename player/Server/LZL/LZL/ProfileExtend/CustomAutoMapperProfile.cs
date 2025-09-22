@@ -3,6 +3,7 @@ using LZL.DbModel.Model;
 using LZL.DbModel.ModelDto.CurrentMatchEntityDto;
 using LZL.DbModel.ModelDto.LegendEntityDto;
 using LZL.DbModel.ModelDto.MatchEntityDto;
+using LZL.DbModel.ModelDto.MatchPlayerCommentEntityDto;
 using LZL.DbModel.ModelDto.PlayerEntityDto;
 using LZL.DbModel.ModelDto.TeamEntityDto;
 using LZL.DbModel.ModelDto.VideoEntityDto;
@@ -41,24 +42,24 @@ namespace LZL.ProfileExtend
                 .ForMember(dest => dest.RedId, map => map.MapFrom(src =>ObjectId.Parse(src.RedId)))
                 .ForMember(dest => dest.StartTime, map => map.MapFrom<DateTime?>((src, dest) =>
                 {
-                    if (src.StartTime == null)
+                    if (src.StartTimeStr == null)
                         return DateTime.MinValue;
                     else 
                     {
                         DateTime dateTime = DateTime.MinValue;
-                        DateTime.TryParse(src.StartTime, out dateTime);
+                        DateTime.TryParse(src.StartTimeStr, out dateTime);
                         return dateTime;
                     }
                         
                 }))
                 .ForMember(dest => dest.EndTime, map => map.MapFrom<DateTime?>((src, dest) =>
                 {
-                    if (src.EndTime == null)
+                    if (src.EndTimeStr == null)
                         return DateTime.MinValue;
                     else
                     {
                         DateTime dateTime = DateTime.MinValue;
-                        DateTime.TryParse(src.EndTime, out dateTime);
+                        DateTime.TryParse(src.EndTimeStr, out dateTime);
                         return dateTime;
                     }
                 }));
@@ -83,17 +84,27 @@ namespace LZL.ProfileExtend
             CreateMap<AddVideoEntityDto, VideoEntity>()
                 .ForMember(dest => dest.StartTime, map => map.MapFrom<DateTime?>((src, dest) =>
                 {
-                    if (src.StartTime == null)
+                    if (src.StartTimeStr == null)
                         return DateTime.MinValue;
                     else
                     {
                         DateTime dateTime = DateTime.MinValue;
-                        DateTime.TryParse(src.StartTime, out dateTime);
+                        DateTime.TryParse(src.StartTimeStr, out dateTime);
                         return dateTime;
                     }
 
                 }));
             CreateMap<VideoEntity, PageDataVideoEntityDto>();
+            #endregion
+
+            #region 选手评论
+            CreateMap<AddMatchPlayerCommentEntityDto, MatchPlayerCommentEntity>();
+
+            CreateMap<AddMatchCommentInfoDto, MatchCommentInfoDto>();
+
+            CreateMap<MatchPlayerCommentEntity,PageDataMatchPlayerCommentEntityDto >();
+
+            CreateMap<PlayerCommentInfoDto, TeamPlayerCommentInfoDto>();
             #endregion
         }
     }

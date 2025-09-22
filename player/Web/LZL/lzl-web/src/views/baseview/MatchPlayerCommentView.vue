@@ -137,7 +137,7 @@ import { ElMessage } from 'element-plus'
 const fileList=ref([]);
 const handleSuccess=(response, file, fileList)=> {
  console.log('上传成功', response);
- addFormData.videoUrl=response.data;
+
  // 在这里处理上传成功后的逻辑，例如更新文件列表等
 }
 const handleError=(err, file, fileList)=> {
